@@ -25,8 +25,13 @@
     <link rel="stylesheet" href="https://owlcarousel2.github.io/OwlCarousel2/assets/owlcarousel/assets/owl.carousel.min.css" />
     <title></title>
     <style>
+      @font-face {
+        font-family: 'canela regular';
+        src: url("https://atmos.moshimoshi.tech/wp-content/uploads/2023/01/Canela-Regular.ttf");
+      }
       body {
         background: #214d47;
+        font-family: "Roboto", Sans-serif;
       }
       .tabs {
         list-style: none;
@@ -47,6 +52,10 @@
         background-color: #214d47;
         color: #fff;
         border: 1px solid white;
+        font-weight: 400;
+        display: flex;
+        justify-content: center;
+        width: 100%;
       }
 
       .tabs li a.active {
@@ -125,9 +134,13 @@
       }
 
       .card-content {
-        right: -500px;
+        right: -1000px;
         bottom: 0;
-        transition: all .5s ease-in-out;
+        transition: all 1s ease-in-out;
+      }
+
+      .card-content h1, .card-content h4 {
+        font-family: "canela regular", Sans-serif;
       }
 
       @media only screen and (max-width: 600px) {
@@ -154,13 +167,13 @@
     
     <div class="container p-2 p-md-5">
       <div class="tabs row d-flex justify-content-center">
-        <li class="col-auto p-0 m-0 me-2 mb-2"><a href="#" class="w-100 d-flex justify-content-center" data-tab="tab1">CLUB</a></li>
-        <li class="col-auto p-0 m-0 me-2 mb-2"><a href="#" class="w-100 d-flex justify-content-center" data-tab="tab2">CURB</a></li>
-        <li class="col-auto p-0 m-0 me-2 mb-2"><a href="#" class="w-100 d-flex justify-content-center" data-tab="tab3">ARCADIA</a></li>
-        <li class="col-auto p-0 m-0 me-2 mb-2"><a href="#" class="w-100 d-flex justify-content-center" data-tab="tab4">GROVE</a></li>
-        <li class="col-auto p-0 m-0 me-2 mb-2"><a href="#" class="w-100 d-flex justify-content-center" data-tab="tab5">ESSENCE</a></li>
-        <li class="col-auto p-0 m-0 me-2 mb-2"><a href="#" class="w-100 d-flex justify-content-center" data-tab="tab6">OASIS</a></li>
-        <li class="col-auto p-0 m-0 me-2 mb-2"><a href="#" class="w-100 d-flex justify-content-center" data-tab="tab7">HAVEN</a></li>
+        <li class="col-auto p-0 m-0 me-2 mb-2"><a href="#" data-tab="tab1">CLUB</a></li>
+        <li class="col-auto p-0 m-0 me-2 mb-2"><a href="#" data-tab="tab2">CURB</a></li>
+        <li class="col-auto p-0 m-0 me-2 mb-2"><a href="#" data-tab="tab3">ARCADIA</a></li>
+        <li class="col-auto p-0 m-0 me-2 mb-2"><a href="#" data-tab="tab4">GROVE</a></li>
+        <li class="col-auto p-0 m-0 me-2 mb-2"><a href="#" data-tab="tab5">ESSENCE</a></li>
+        <li class="col-auto p-0 m-0 me-2 mb-2"><a href="#" data-tab="tab6">OASIS</a></li>
+        <li class="col-auto p-0 m-0 me-2 mb-2"><a href="#" data-tab="tab7">HAVEN</a></li>
       </div>
 
       <div class="tab-content">
