@@ -27,7 +27,7 @@
     <style>
       @font-face {
         font-family: 'canela regular';
-        src: url("https://atmos.moshimoshi.tech/wp-content/uploads/2023/01/Canela-Regular.ttf");
+        src: url("https://befonts.com/wp-content/uploads/2022/08/Canela-Regular-Trial.otf");
       }
       body {
         background: #214d47;
@@ -145,7 +145,7 @@
 
       @media only screen and (max-width: 600px) {
         .tabs li {
-          width: 90px;
+          width: 95%;
         }
 
         .item div {
@@ -168,22 +168,29 @@
     <div class="container p-2 p-md-5">
       <div class="tabs row d-flex justify-content-center">
         <li class="col-auto p-0 m-0 me-2 mb-2"><a href="#" data-tab="tab1">CLUB</a></li>
+          <div class="carousel-copy d-sm-none tab1"></div>
         <li class="col-auto p-0 m-0 me-2 mb-2"><a href="#" data-tab="tab2">CURB</a></li>
+          <div class="carousel-copy d-sm-none tab2"></div>
         <li class="col-auto p-0 m-0 me-2 mb-2"><a href="#" data-tab="tab3">ARCADIA</a></li>
+          <div class="carousel-copy d-sm-none tab3"></div>
         <li class="col-auto p-0 m-0 me-2 mb-2"><a href="#" data-tab="tab4">GROVE</a></li>
+          <div class="carousel-copy d-sm-none tab4"></div>
         <li class="col-auto p-0 m-0 me-2 mb-2"><a href="#" data-tab="tab5">ESSENCE</a></li>
+          <div class="carousel-copy d-sm-none tab5"></div>
         <li class="col-auto p-0 m-0 me-2 mb-2"><a href="#" data-tab="tab6">OASIS</a></li>
+          <div class="carousel-copy d-sm-none tab6"></div>
         <li class="col-auto p-0 m-0 me-2 mb-2"><a href="#" data-tab="tab7">HAVEN</a></li>
+          <div class="carousel-copy d-sm-none tab7"></div>
       </div>
 
-      <div class="tab-content">
-        <div id="tab1" class="tabs"></div>
-        <div id="tab2" class="tabs"></div>
-        <div id="tab3" class="tabs"></div>
-        <div id="tab4" class="tabs"></div>
-        <div id="tab5" class="tabs"></div>
-        <div id="tab6" class="tabs"></div>
-        <div id="tab7" class="tabs"></div>
+      <div class="tab-content d-none d-sm-block">
+        <div id="tab1" class="tabs tab1"></div>
+        <div id="tab2" class="tabs tab2"></div>
+        <div id="tab3" class="tabs tab3"></div>
+        <div id="tab4" class="tabs tab4"></div>
+        <div id="tab5" class="tabs tab5"></div>
+        <div id="tab6" class="tabs tab6"></div>
+        <div id="tab7" class="tabs tab7"></div>
       </div>
     </div>
 
@@ -359,11 +366,14 @@
           `
         }
 
-        document.getElementById(`tab${i}`).innerHTML = `
-          <div class="owl-carousel owl-theme">
-            ${tabData}
-          </div>
-        `
+        let tabs = document.getElementsByClassName(`tab${i}`)
+        for(let k = 0; k<tabs?.length; k++){
+          tabs[k].innerHTML = `
+            <div class="owl-carousel owl-theme mb-2">
+              ${tabData}
+            </div>
+          `
+        }
       }
     </script>
 
@@ -404,7 +414,16 @@
           
           const tabId = e.target.getAttribute("data-tab")
           const filteredData = data?.filter(el => el?.tabId === tabId)
-          // console.log(filteredData, 5656565656);
+          const carouselCopy = document.getElementsByClassName(`carousel-copy`)
+          for (let l = 0; l<carouselCopy?.length; l++){
+            if(carouselCopy[l]?.classList.contains(tabId)){
+              carouselCopy[l]?.classList?.add("d-block")
+              carouselCopy[l]?.classList?.remove("d-none")
+            } else {
+              carouselCopy[l]?.classList?.remove("d-block")
+              carouselCopy[l]?.classList?.add("d-none")
+            }
+          }
         });
       }
 
